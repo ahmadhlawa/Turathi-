@@ -16,8 +16,8 @@ export function PatternScanner() {
   };
 
   return (
-    <div className="bg-white rounded-3xl shadow-2xl border border-nt-border overflow-hidden flex flex-col md:flex-row h-full w-full relative">
-      <div className="w-full md:w-1/2 relative bg-nt-dark flex items-center justify-center p-6 min-h-[300px] overflow-hidden">
+    <div className="bg-white rounded-3xl shadow-2xl border border-nt-border overflow-hidden flex flex-col md:flex-row h-auto min-h-[300px] md:h-full w-full relative">
+      <div className="w-full md:w-1/2 relative bg-nt-dark flex items-center justify-center p-6 min-h-[200px] md:min-h-[300px] overflow-hidden">
         {/* Placeholder for Tatreez image */}
         <div className="absolute inset-0 bg-[url('/hebron.jpg')] bg-cover bg-center opacity-80 mix-blend-screen transition-all duration-1000"></div>
         
@@ -129,8 +129,8 @@ export function RagChatbot() {
   }
 
   return (
-    <div className="bg-white rounded-3xl shadow-xl border border-nt-border overflow-hidden flex flex-col h-[400px] w-full max-w-2xl mx-auto">
-      <div className="bg-nt-dark text-white p-4 flex items-center gap-3">
+    <div className="bg-white rounded-3xl shadow-xl border border-nt-border overflow-hidden flex flex-col h-[450px] w-full max-w-2xl mx-auto">
+      <div className="bg-nt-dark text-white p-4 flex items-center gap-3 shrink-0">
         <MessageSquare className="text-nt-bg" />
         <div>
           <h3 className="font-serif font-bold italic">حارس الحقيقة (LLM + RAG)</h3>

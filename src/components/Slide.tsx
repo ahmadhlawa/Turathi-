@@ -17,17 +17,17 @@ export function Slide({ children, className, bgImage, overlayClassName }: SlideP
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -50 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-      className={cn("w-full h-full flex flex-col justify-center relative", className)}
+      className={cn("w-full min-h-screen flex flex-col relative", className)}
     >
       {bgImage && (
         <div 
-          className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none" 
+          className="fixed inset-0 z-0 bg-cover bg-center pointer-events-none" 
           style={{ backgroundImage: `url(${bgImage})` }}
         >
           <div className={cn("absolute inset-0 bg-nt-bg/90 backdrop-blur-sm", overlayClassName)} />
         </div>
       )}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-8 py-12 flex flex-col h-full justify-center">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-8 py-20 pb-32 flex flex-col min-h-screen justify-center">
         {children}
       </div>
     </motion.div>
@@ -36,10 +36,10 @@ export function Slide({ children, className, bgImage, overlayClassName }: SlideP
 
 export function SlideHeader({ title, subtitle, badge }: { title: string, subtitle?: string, badge?: string }) {
   return (
-    <div className="mb-10 text-right">
-      {badge && <div className="mb-6 inline-block py-1 px-3 bg-nt-border border border-nt-border-dark rounded text-[10px] uppercase tracking-widest text-nt-muted">{badge}</div>}
-      <h2 className="text-4xl md:text-5xl font-serif font-black leading-tight text-nt-dark mb-4 tracking-tight">{title}</h2>
-      {subtitle && <p className="text-lg text-nt-muted max-w-2xl leading-relaxed font-medium italic">{subtitle}</p>}
+    <div className="mb-6 md:mb-10 text-right">
+      {badge && <div className="mb-4 md:mb-6 inline-block py-1 px-3 bg-nt-border border border-nt-border-dark rounded text-[10px] uppercase tracking-widest text-nt-muted">{badge}</div>}
+      <h2 className="text-3xl md:text-5xl font-serif font-black leading-tight text-nt-dark mb-3 md:mb-4 tracking-tight">{title}</h2>
+      {subtitle && <p className="text-base md:text-lg text-nt-muted max-w-2xl leading-relaxed font-medium italic">{subtitle}</p>}
     </div>
   );
 }
@@ -58,7 +58,7 @@ export function SlideControls({
   themeColor: string 
 }) {
   return (
-    <div className="absolute bottom-8 left-0 w-full flex justify-between items-center px-8 sm:px-16 z-50">
+    <div className="fixed bottom-0 left-0 w-full flex justify-between items-center px-6 py-4 sm:px-16 z-50 bg-nt-bg/80 backdrop-blur-md border-t border-nt-border/50 md:bg-transparent md:border-none md:pb-8">
       <div className="flex gap-2">
         <button 
           onClick={onPrev}

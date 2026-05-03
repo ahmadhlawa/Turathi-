@@ -12,7 +12,7 @@ export default function TurathPresentation() {
   const prev = () => setCurrentSlide(c => Math.max(c - 1, 0));
 
   return (
-    <div className="absolute inset-0 w-full h-full bg-nt-bg overflow-hidden text-right" dir="rtl">
+    <div className="fixed inset-0 w-full h-full bg-nt-bg overflow-y-auto text-right" dir="rtl">
       <AnimatePresence mode="wait">
         {currentSlide === 0 && (
           <Slide key="t1" bgImage="/digi.png" overlayClassName="bg-nt-bg/85">
@@ -26,10 +26,10 @@ export default function TurathPresentation() {
                   <BrainCircuit size={64} strokeWidth={1.5} />
                 </div>
               </motion.div>
-              <h1 className="text-6xl md:text-8xl font-serif font-black mb-6 tracking-tight text-nt-dark pb-4">
+              <h1 className="text-5xl md:text-8xl font-serif font-black mb-6 tracking-tight text-nt-dark pb-4 leading-none">
                 تراثي <span className="text-nt-red">الرقمي</span>
               </h1>
-              <p className="text-2xl md:text-3xl text-nt-muted font-bold leading-tight font-serif italic">
+              <p className="text-xl md:text-3xl text-nt-muted font-bold leading-tight font-serif italic">
                 السيادة المعرفية والتحقق <br/>
                 <span className="text-lg md:text-xl font-medium text-nt-dark mt-4 block not-italic">حماية الهوية الفلسطينية بالذكاء الاصطناعي</span>
               </p>
@@ -120,9 +120,9 @@ export default function TurathPresentation() {
         {currentSlide === 4 && (
           <Slide key="t-map">
             <SlideHeader badge="خريطة الصمود" title="توثيق الأرض والقرى" subtitle="ربط الهوية التراثية بجغرافية فلسطين الكاملة" />
-            <div className="mt-8 bg-nt-dark/5 rounded-[40px] p-2 border border-nt-border h-[500px] relative overflow-hidden flex items-center justify-center bg-white">
+            <div className="mt-8 bg-nt-dark/5 rounded-[30px] md:rounded-[40px] p-2 border border-nt-border h-[400px] md:h-[500px] relative overflow-hidden flex items-center justify-center bg-white">
               <img src="/map.png" alt="Map of Palestine" className="max-h-full max-w-full object-contain" />
-              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur p-4 rounded-2xl border border-nt-border shadow-lg text-right" dir="rtl">
+              <div className="absolute top-2 right-2 md:top-4 md:right-4 bg-white/90 backdrop-blur p-3 md:p-4 rounded-xl md:rounded-2xl border border-nt-border shadow-lg text-right" dir="rtl">
                 <div className="flex items-center gap-2 mb-2">
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                   <span className="text-sm font-bold">بلدات صامدة</span>
@@ -148,8 +148,8 @@ export default function TurathPresentation() {
         {currentSlide === 6 && (
           <Slide key="t5">
             <SlideHeader badge="الجانب التقني 2" title="محرك البحث الموثق (RAG)" subtitle="حارس الحقيقة: إجابات مستندة حصرياً للمصادر التاريخية" />
-             <div className="mt-8 flex flex-col md:flex-row gap-8 items-center h-[450px]">
-              <div className="flex-1 space-y-6">
+            <div className="mt-8 flex flex-col md:flex-row gap-8 items-center h-auto md:h-[450px]">
+              <div className="w-full flex-1 space-y-4 md:space-y-6">
                 <div className="bg-white p-6 rounded-xl border-l-4 border-r-0 border-nt-red shadow-sm border border-nt-border text-right" dir="rtl">
                   <h3 className="font-bold font-serif text-xl flex items-center gap-2 mb-2 text-nt-dark"><SearchCheck className="text-nt-red" /> الإجابة الموجهة</h3>
                   <p className="text-nt-muted text-sm leading-relaxed">بناء RAG (Retrieval-Augmented Generation) مرتبط بقاعدة بيانات موثوقة حصرياً (كتب تاريخية، شهادات شفوية مؤرشفة).</p>
@@ -233,21 +233,21 @@ export default function TurathPresentation() {
         {currentSlide === 8 && (
           <Slide key="t-current-status">
             <SlideHeader badge="المشروع الآن" title="المشروع في الوقت الحالي" subtitle="نظرة على التطبيق ونظام الذكاء الاصطناعي الحالي" />
-            <div className="mt-8 flex flex-col items-center justify-center h-[500px]">
+            <div className="mt-8 flex flex-col items-center justify-center h-[400px] md:h-[500px]">
               <a 
                 href="https://turathi-project.onrender.com/?tool=guardian" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-full h-full bg-white rounded-[40px] border border-nt-border overflow-hidden shadow-2xl relative group block cursor-pointer"
+                className="w-full h-full bg-white rounded-[30px] md:rounded-[40px] border border-nt-border overflow-hidden shadow-2xl relative group block cursor-pointer"
               >
                 <img src="/main.png" alt="Current Project Status" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-nt-dark/80 to-transparent flex items-bottom p-12">
+                <div className="absolute inset-0 bg-gradient-to-t from-nt-dark/80 to-transparent flex items-end p-6 md:p-12">
                    <div className="mt-auto text-right w-full" dir="rtl">
-                      <div className="inline-flex items-center gap-2 bg-nt-red text-white px-4 py-2 rounded-full text-xs font-bold mb-4 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                      <div className="inline-flex items-center gap-2 bg-nt-red text-white px-4 py-2 rounded-full text-[10px] md:text-xs font-bold mb-4 transform md:translate-y-4 md:opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                         انقر لزيارة المنصة الحية <ExternalLink size={14} />
                       </div>
-                      <h3 className="text-3xl font-serif font-black text-white mb-2 underline decoration-nt-red underline-offset-8">فلسطين الرقمية</h3>
-                      <p className="text-white/80 max-w-2xl text-lg">النموذج الأولي المتكامل الذي يجمع بين تحليل الصور والبحث التوثيقي.</p>
+                      <h3 className="text-2xl md:text-3xl font-serif font-black text-white mb-2 underline decoration-nt-red underline-offset-8">فلسطين الرقمية</h3>
+                      <p className="text-white/80 max-w-2xl text-sm md:text-lg">النموذج الأولي المتكامل الذي يجمع بين تحليل الصور والبحث التوثيقي.</p>
                    </div>
                 </div>
               </a>
